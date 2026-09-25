@@ -6,8 +6,7 @@
 namespace mapper::model {
 
 Envelope Envelope::empty() {
-    constexpr double inf = std::numeric_limits<double>::infinity();
-    return Envelope{inf, inf, -inf, -inf};
+    return Envelope();
 }
 
 bool Envelope::isEmpty() const {

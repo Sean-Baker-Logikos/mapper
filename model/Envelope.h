@@ -1,15 +1,17 @@
 #pragma once
 
+#include <limits>
+
 namespace mapper::model {
 
 /// Axis-aligned bounding box in world coordinates.
 /// Default-constructed envelopes are empty (inverted bounds), so the first
 /// expand() call adopts the point exactly.
 struct Envelope {
-    double xmin = 0.0;
-    double ymin = 0.0;
-    double xmax = 0.0;
-    double ymax = 0.0;
+    double xmin = std::numeric_limits<double>::infinity();
+    double ymin = std::numeric_limits<double>::infinity();
+    double xmax = -std::numeric_limits<double>::infinity();
+    double ymax = -std::numeric_limits<double>::infinity();
 
     static Envelope empty();
 
